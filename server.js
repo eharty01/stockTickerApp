@@ -74,10 +74,11 @@ http.createServer(async function(req, res) {
     
     // p2 create the process view
     else if (req.url.startsWith("/process")) {
-        // Parse the query string
-        const urlParts = new URL(req.url, `http://${req.headers.host}`);
-        const userInput = urlParts.searchParams.get('userInput');
-        const idMethod = urlParts.searchParams.get('idMethod');
+        // parse the form info out of the query string
+        const url = require('url');
+        const queryObject = url.parse(req.url, true).query;
+        const userInput = queryObject.userInput;
+        const idMethod = queryObject.idMethod;
         
         try {
             const account = new MongoClient(connectionString);
@@ -86,7 +87,7 @@ http.createServer(async function(req, res) {
             const dbobj = account.db("Stock");
             const collection = dbobj.collection('PublicCompanies');
             
-            // search db based on method
+            // search db based on user selected method
             let searchQuery = {};
             if (idMethod == "ticker") {
                 searchQuery = { companyTicker: userInput };
