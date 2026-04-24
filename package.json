@@ -1,0 +1,11 @@
+{
+  "name": "stock-ticker-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.0.0"
+  }
+}
