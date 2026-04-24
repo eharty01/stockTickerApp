@@ -14,6 +14,36 @@ http.createServer(async function(req, res) {
             <!DOCTYPE html>
             <html lang="en">
             <head>
+                <style>
+                    html, body {
+                        background-image: url("https://www.chase.com/content/dam/structured-images/articles/thumbnail-image-large/how-does-the-stock-market-work-2560x1440.jpg");
+                    }
+
+                    h1 {
+                        text-align: center;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        color: white;
+                    }
+
+                    .form-card {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    form {
+                        background-color: white;
+                        padding: 15px;
+                        border-radius: 10px;
+                        border: 2px black solid;
+                        font-family:Verdana, Geneva, Tahoma, sans-serif;
+                        max-width: 400px;
+                    }
+
+                    .submitButton {
+                        display: flex;
+                        justify-content: center;
+                    }
+                </style>
             </head>
             <body>
                 <div class="form-card">
