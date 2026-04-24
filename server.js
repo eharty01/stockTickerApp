@@ -48,6 +48,7 @@ http.createServer(async function(req, res) {
             <body>
                 <div class="form-card">
                     <h1>Find a company's stock price!</h1>
+                    <br>
                     <form action="/process" method="GET">
                         <p>Please enter a company or stock ticker:</p>
                         <input type="text" id="userInput" name="userInput" required>
@@ -119,14 +120,14 @@ http.createServer(async function(req, res) {
                         </tr>
                 `);
                 
-                for (const doc of results) {
-                    console.log(`Result: ${doc.companyName} (${doc.companyTicker}) - $${doc.latestStockPrice}`);
+                for (i=0; i<results.length; i++) {
+                    console.log(`Result: ${results[i].companyName} (${results[i].companyTicker}) - $${results[i].latestStockPrice}`);
 
                     res.write(`
                         <tr>
-                            <td>${doc.companyName}</td>
-                            <td>${doc.companyTicker}</td>
-                            <td>$${doc.latestStockPrice}</td>
+                            <td>${results[i].companyName}</td>
+                            <td>${results[i].companyTicker}</td>
+                            <td>$${results[i].latestStockPrice}</td>
                         </tr>
                     `);
                 }
