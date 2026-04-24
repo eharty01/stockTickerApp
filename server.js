@@ -46,9 +46,9 @@ http.createServer(async function(req, res) {
                 </style>
             </head>
             <body>
+                <h1>Find a company's stock price!</h1>
+                
                 <div class="form-card">
-                    <h1>Find a company's stock price!</h1>
-                    <br>
                     <form action="/process" method="GET">
                         <p>Please enter a company or stock ticker:</p>
                         <input type="text" id="userInput" name="userInput" required>
@@ -105,7 +105,6 @@ http.createServer(async function(req, res) {
                 <body>
                     <div class="result">
                         <h2>Search Results for: "${userInput}"</h2>
-                        <p>Searching by: ${idMethod === 'ticker' ? 'Stock Ticker' : 'Company Name'}</p>
             `);
             
             if (results.length === 0) {
